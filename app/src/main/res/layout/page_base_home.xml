@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    tools:context=".ui.screens.base_pages.HomePage">
+
+    <ImageView
+        android:id="@+id/dropImage"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/water_drop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/adviceText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/dropImage"
+        app:layout_constraintLeft_toRightOf="@id/dropImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dropImage">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:scaleType="fitXY"
+            android:src="@drawable/text_place" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:text="Sit down while drinking! It is beneficial for your health."
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <com.progress.progressview.ProgressView
+        android:id="@+id/progressView"
+        android:layout_width="wrap_content"
+        android:layout_height="330dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/adviceText"
+        app:pvBackgroundColor="@color/grey"
+        app:pvBackgroundWidth="4dp"
+        app:pvDirection="fromLeft"
+        app:pvProgress="0"
+        app:pvProgressColor="@color/blue"
+        app:pvProgressWidth="4dp"
+        app:pvShape="arc" />
+
+    <ImageView
+        android:id="@+id/progressImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/progress_image"
+        app:layout_constraintLeft_toLeftOf="@id/progressView"
+        app:layout_constraintRight_toRightOf="@id/progressView"
+        app:layout_constraintTop_toTopOf="@id/progressView" />
+
+    <TextView
+        android:id="@+id/consumedWaterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/blue"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/targetWaterText"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="@id/progressImage"
+        app:layout_constraintRight_toLeftOf="@id/targetWaterText"
+        app:layout_constraintTop_toTopOf="@id/targetWaterText" />
+
+    <TextView
+        android:id="@+id/targetWaterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/2000ml"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/dailyDrinkWaterText"
+        app:layout_constraintLeft_toRightOf="@id/consumedWaterText"
+        app:layout_constraintRight_toRightOf="@id/progressImage"
+        app:layout_constraintTop_toTopOf="@id/progressImage"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/dailyDrinkWaterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Daily Drink Target"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/progressImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/targetWaterText" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:paddingEnd="4dp"
+        android:src="@drawable/ic_drop2"
+        app:layout_constraintLeft_toRightOf="@id/progressView"
+        app:layout_constraintRight_toRightOf="@id/progressView"
+        app:layout_constraintTop_toBottomOf="@id/progressView" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:alpha="0.7"
+        android:paddingStart="4dp"
+        android:src="@drawable/heart"
+        app:layout_constraintLeft_toLeftOf="@id/progressView"
+        app:layout_constraintRight_toLeftOf="@id/progressView"
+        app:layout_constraintTop_toBottomOf="@id/progressView" />
+
+    <TextView
+        android:id="@+id/glassSizeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200 ml"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/glassImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/glassImage"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:src="@drawable/glass2"
+        app:layout_constraintBottom_toBottomOf="@id/progressImage"
+        app:layout_constraintLeft_toLeftOf="@id/progressImage"
+        app:layout_constraintRight_toRightOf="@id/progressImage" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@id/glassImage"
+        app:layout_constraintLeft_toLeftOf="@id/glassImage"
+        app:layout_constraintRight_toRightOf="@id/glassImage"
+        app:layout_constraintTop_toTopOf="@id/glassImage" />
+
+    <TextView
+        android:id="@+id/addingAnimationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+100 ml Well Done"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/targetWaterText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/targetWaterText" />
+
+    <ImageView
+        android:id="@+id/switchCupImage"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/change_glass"
+        app:layout_constraintBottom_toBottomOf="@id/glassImage"
+        app:layout_constraintLeft_toRightOf="@id/progressImage"
+        app:layout_constraintRight_toRightOf="@id/progressImage" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:rotation="90"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintLeft_toLeftOf="@id/progressImage"
+        app:layout_constraintRight_toRightOf="@id/progressImage"
+        app:layout_constraintTop_toBottomOf="@id/progressImage" />
+
+    <TextView
+        android:id="@+id/confirmText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:text="Confirm that you have just drink water"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrow" />
+
+    <TextView
+        android:id="@+id/recordsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Records"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmText" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:elevation="8dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recordsText">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drinksRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/drinks_list_item" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

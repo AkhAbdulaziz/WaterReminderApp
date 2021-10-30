@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:paddingHorizontal="40dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/textSwitchCup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Switch Cup"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/glass100ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/glass125ml"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textGlass100ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="100 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass100ml"
+                app:layout_constraintTop_toBottomOf="@id/glass100ml" />
+
+            <ImageView
+                android:id="@+id/glass125ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintBottom_toBottomOf="@id/glass100ml"
+                app:layout_constraintLeft_toRightOf="@id/glass100ml"
+                app:layout_constraintRight_toLeftOf="@id/glass150ml"
+                app:layout_constraintTop_toTopOf="@id/glass100ml" />
+
+            <TextView
+                android:id="@+id/textGlass125ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="125 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass125ml"
+                app:layout_constraintRight_toRightOf="@id/glass125ml"
+                app:layout_constraintTop_toBottomOf="@id/glass125ml" />
+
+            <ImageView
+                android:id="@+id/glass150ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintBottom_toBottomOf="@id/glass100ml"
+                app:layout_constraintLeft_toRightOf="@id/glass125ml"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/glass100ml" />
+
+            <TextView
+                android:id="@+id/textGlass150ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="150 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass150ml"
+                app:layout_constraintRight_toRightOf="@id/glass150ml"
+                app:layout_constraintTop_toBottomOf="@id/glass150ml" />
+
+
+            <ImageView
+                android:id="@+id/glass175ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/glass200ml"
+                app:layout_constraintTop_toBottomOf="@id/glass100ml" />
+
+
+            <TextView
+                android:id="@+id/textGlass175ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="175 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass175ml"
+                app:layout_constraintTop_toBottomOf="@id/glass175ml" />
+
+            <ImageView
+                android:id="@+id/glass200ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintBottom_toBottomOf="@id/glass175ml"
+                app:layout_constraintLeft_toRightOf="@id/glass175ml"
+                app:layout_constraintRight_toLeftOf="@id/glass300ml"
+                app:layout_constraintTop_toTopOf="@id/glass175ml" />
+
+            <TextView
+                android:id="@+id/textGlass200ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="200 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass200ml"
+                app:layout_constraintRight_toRightOf="@id/glass200ml"
+                app:layout_constraintTop_toBottomOf="@id/glass200ml" />
+
+            <ImageView
+                android:id="@+id/glass300ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintBottom_toBottomOf="@id/glass175ml"
+                app:layout_constraintLeft_toRightOf="@id/glass200ml"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/glass175ml" />
+
+            <TextView
+                android:id="@+id/textGlass300ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="300 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass300ml"
+                app:layout_constraintRight_toRightOf="@id/glass300ml"
+                app:layout_constraintTop_toBottomOf="@id/glass300ml" />
+
+
+            <ImageView
+                android:id="@+id/glass400ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintLeft_toLeftOf="@id/glass175ml"
+                app:layout_constraintTop_toBottomOf="@id/glass175ml" />
+
+            <TextView
+                android:id="@+id/textGlass400ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="400 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass400ml"
+                app:layout_constraintTop_toBottomOf="@id/glass400ml" />
+
+            <ImageView
+                android:id="@+id/glass500ml"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_glass1"
+                app:layout_constraintBottom_toBottomOf="@id/glass400ml"
+                app:layout_constraintLeft_toLeftOf="@id/glass200ml"
+                app:layout_constraintTop_toTopOf="@id/glass400ml" />
+
+            <TextView
+                android:id="@+id/textGlass500ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="500 ml"
+                android:textColor="@color/item_black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/glass500ml"
+                app:layout_constraintRight_toRightOf="@id/glass500ml"
+                app:layout_constraintTop_toBottomOf="@id/glass500ml" />
+
+
+            <TextView
+                android:id="@+id/okBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="ok"
+                android:textAllCaps="true"
+                android:textColor="@color/blue"
+                android:textSize="20sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glass500ml" />
+
+            <TextView
+                android:id="@+id/cancelBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="cancel"
+                android:textAllCaps="true"
+                android:textColor="@color/item_black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/okBtn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
