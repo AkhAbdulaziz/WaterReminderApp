@@ -46,7 +46,7 @@ class ChangeWakeUpTimeDialog(
 
         hourPicker.value = selectedHour.toInt()
         minutePicker.value = selectedMinute.toInt()
-        wakeUpResult.text = "$selectedHour $selectedMinute"
+        wakeUpResult.text = "$selectedHour:$selectedMinute"
 
         val hours = ArrayList<String>()
         for (i in 0 until 24) {
@@ -64,7 +64,7 @@ class ChangeWakeUpTimeDialog(
             displayedValues = hours.toTypedArray()
             setOnValueChangedListener(NumberPicker.OnValueChangeListener { picker, oldVal, newVal ->
                 selectedHour = hours[newVal]
-                wakeUpResult.text = "${hours[newVal]} $selectedMinute"
+                wakeUpResult.text = "${hours[newVal]}:$selectedMinute"
             })
         }
 
@@ -84,7 +84,7 @@ class ChangeWakeUpTimeDialog(
             displayedValues = minutes.toTypedArray()
             setOnValueChangedListener(NumberPicker.OnValueChangeListener { picker, oldVal, newVal ->
                 selectedMinute = minutes[newVal]
-                wakeUpResult.text = "$selectedHour ${minutes[newVal]}"
+                wakeUpResult.text = "$selectedHour:${minutes[newVal]}"
             })
         }
 

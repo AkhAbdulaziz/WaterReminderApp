@@ -20,7 +20,6 @@ abstract class AppDatabase : RoomDatabase() {
                 instance =
                     Room.databaseBuilder(App.instance, AppDatabase::class.java, "WaterReminder1")
                         .allowMainThreadQueries()
-                        .fallbackToDestructiveMigration()
                         .build()
             }
             return instance

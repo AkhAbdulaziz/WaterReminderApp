@@ -2,6 +2,7 @@ package uz.gita.waterreminder.ui.screens.base_pages
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -10,8 +11,9 @@ import uz.gita.waterreminder.R
 import uz.gita.waterreminder.databinding.PageBaseSettingsBinding
 import uz.gita.waterreminder.ui.dialogs.*
 import uz.gita.waterreminder.ui.viewmodels.base_viewmodels.SettingsPageViewModel
+import uz.gita.waterreminder.util.cancelRequest
+import uz.gita.waterreminder.util.createPeriodicWorkRequest
 import uz.gita.waterreminder.util.scope
-import uz.gita.waterreminder.util.showToast
 
 @AndroidEntryPoint
 class SettingsPage : Fragment(R.layout.page_base_settings) {
@@ -20,6 +22,8 @@ class SettingsPage : Fragment(R.layout.page_base_settings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
         super.onViewCreated(view, savedInstanceState)
+        reminderSwitch.colorBorder = ContextCompat.getColor(requireContext(), R.color.blue)
+        reminderSwitch.colorOn = ContextCompat.getColor(requireContext(), R.color.blue)
         setTexts()
         setClickListenerToViews()
 
@@ -31,7 +35,11 @@ class SettingsPage : Fragment(R.layout.page_base_settings) {
         changeWeightText.text = "${viewModel.getWeight()} ${viewModel.getWeightUnit()}"
         changeWakeUpTimeText.text = viewModel.getWakeUpTime()
         changeSleepingTimeText.text = viewModel.getBedTime()
-        changeReminder.isChecked = viewModel.getNotificationStatus()
+        if (viewModel.getNotificationStatus()) {
+            reminderSwitch.labelOn
+        } else {
+            reminderSwitch.labelOff
+        }
     }
 
     private fun setClickListenerToViews() = binding.scope {
@@ -79,6 +87,7 @@ class SettingsPage : Fragment(R.layout.page_base_settings) {
                 changeWakeUpTimeText.text = "$selectedHour:$selectedMinute"
             }
             changeWakeUpTimeDialog.show(childFragmentManager, "WakeUpTimeChanged")
+            cancelAndSetNewNotificationAndCheckNewDay()
         }
 
         changeSleepingTime.setOnClickListener {
@@ -90,16 +99,29 @@ class SettingsPage : Fragment(R.layout.page_base_settings) {
                 changeSleepingTimeText.text = "$selectedHour:$selectedMinute"
             }
             changeSleepingTimeDialog.show(childFragmentManager, "BedTimeChanged")
+            cancelAndSetNewNotificationAndCheckNewDay()
         }
 
-        changeReminder.setOnCheckedChangeListener { compoundButton, b ->
-            if (b) {
-                viewModel.setNotificationStatus(true)
-                showToast("Swtich ON")
-            } else {
+        changeReminder.setOnClickListener {
+            if (viewModel.getNotificationStatus()) {
                 viewModel.setNotificationStatus(false)
-                showToast("Switch OFF ")
+                reminderSwitch.labelOff
+            } else {
+                viewModel.setNotificationStatus(true)
+                reminderSwitch.labelOn
             }
+            cancelAndSetNewNotificationAndCheckNewDay()
         }
+    }
+
+    private fun cancelAndSetNewNotificationAndCheckNewDay() {
+        cancelRequest(viewModel.getCurrentNotificationRequestId())
+        viewModel.setCurrentNotificationRequestId(
+            createPeriodicWorkRequest(
+                2,
+                viewModel.getNotificationMaxId()
+            )
+        )
+        viewModel.checkNewDay()
     }
 }

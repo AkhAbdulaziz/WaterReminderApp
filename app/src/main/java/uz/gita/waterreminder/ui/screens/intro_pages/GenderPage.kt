@@ -2,6 +2,7 @@ package uz.gita.waterreminder.ui.screens.intro_pages
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,6 +20,13 @@ class GenderPage : Fragment(R.layout.page_intro_gender) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
         super.onViewCreated(view, savedInstanceState)
+
+           requireActivity().onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            })
 
         maleImageAndText.setOnClickListener {
             maleText.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue))

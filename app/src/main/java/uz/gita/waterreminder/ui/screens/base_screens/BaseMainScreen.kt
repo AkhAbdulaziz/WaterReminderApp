@@ -30,7 +30,7 @@ class BaseMainScreen : Fragment(R.layout.screen_base_main) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.setCurrentNotificationRequestId(
             createPeriodicWorkRequest(
-                getInterval(),
+                20,
                 viewModel.getNotificationMaxId()
             )
         )
@@ -60,7 +60,6 @@ class BaseMainScreen : Fragment(R.layout.screen_base_main) {
         }.attach()
     }
 
-
     private fun getInterval(): Long {
         val btStr = viewModel.getBedTime().substring(0, viewModel.getBedTime().indexOf(':'))
         bedTimeHour = if (btStr.isEmpty()) 24f else btStr.toFloat()
@@ -68,6 +67,7 @@ class BaseMainScreen : Fragment(R.layout.screen_base_main) {
 
         val wtStr = viewModel.getWakeUpTime().substring(0, viewModel.getWakeUpTime().indexOf(':'))
         wakeUpTimeHour = if (wtStr.isEmpty()) 24f else wtStr.toFloat()
+
         Log.d("RRR", "wakeUpTimeHour = $wakeUpTimeHour")
         Log.d("RRR", "getTargetSize = ${viewModel.getTargetSize()}")
         Log.d("RRR", "getConsumedWater = ${viewModel.getConsumedWater()}")
@@ -79,6 +79,20 @@ class BaseMainScreen : Fragment(R.layout.screen_base_main) {
                 .toFloat())
         Log.d("RRR", "interval = $interval")
         Log.d("RRR", "interval in minutes = ${interval * 60}")
+
         return (interval * 60).toLong()
     }
 }
+
+/*
+
+12:55   initial done
+13:15
+13:35
+13:55
+14:15
+14:35
+14:55
+
+
+ */

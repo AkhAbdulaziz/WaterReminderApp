@@ -1,13 +1,18 @@
 package uz.gita.waterreminder.ui.screens.base_pages
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import uz.gita.waterreminder.R
 import uz.gita.waterreminder.data.entity.DrinksItemEntity
 import uz.gita.waterreminder.databinding.PageBaseHomeBinding
@@ -30,22 +35,37 @@ class HomePage() : Fragment(R.layout.page_base_home) {
     private lateinit var calendar: Calendar
     private var currentHour = 0
     private var currentMinute = 0
+    private var canIDelete = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
         drinksRecyclerView.adapter = adapter
         drinksRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         loadData()
         viewModel.drinksListLiveData.observe(viewLifecycleOwner, drinksListObserver)
+        checkHeartImageStatus()
 
-        adapter.setDeleteListener { pos ->
-            viewModel.reduceProgressValue(drinkList[pos].glassSize)
-            setTextsToProgress()
-            viewModel.deleteDrunkItem(drinkList[pos])
-            drinkList.removeAt(pos)
+        requireActivity().onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            })
+
+        adapter.setDeleteListener {pos, data ->
+//            viewModel.reduceProgressValue(data.glassSize)
+//            setTextsToProgress()
+            viewModel.deleteDrunkItem(data)
+            drinkList.remove(data)
             adapter.notifyItemRemoved(pos)
+//            checkHeartImageStatus()
         }
 
         glassImage.setOnClickListener {
+            it.isClickable = false
+            lifecycleScope.launch {
+                delay(1500)
+                it.isClickable = true
+            }
             calendar = Calendar.getInstance()
             currentHour = calendar.get(Calendar.HOUR_OF_DAY)
             currentMinute = calendar.get(Calendar.MINUTE)
@@ -68,7 +88,7 @@ class HomePage() : Fragment(R.layout.page_base_home) {
 
             val data = DrinksItemEntity(
                 0,
-                R.drawable.ic_glass1,
+                R.drawable.glass_item,
                 "$currentHour : $currentMinute",
                 viewModel.getGlassSize(),
                 false
@@ -77,6 +97,8 @@ class HomePage() : Fragment(R.layout.page_base_home) {
             drinkList.add(0, data)
             adapter.notifyItemInserted(0)
             drinksRecyclerView.scrollToPosition(0)
+
+            checkHeartImageStatus()
         }
 
         switchCupImage.setOnClickListener {
@@ -87,6 +109,16 @@ class HomePage() : Fragment(R.layout.page_base_home) {
                 setTextsToProgress()
             }
             switchCupDialog.show(childFragmentManager, "GlassCupSwitched")
+        }
+    }
+
+    private fun checkHeartImageStatus() = binding.scope {
+        if (viewModel.getConsumedWater() >= viewModel.getTargetSize()) {
+            heartImgStatus.setImageResource(R.drawable.live_heart)
+            heartImgStatus.alpha = 1f
+        } else {
+            heartImgStatus.setImageResource(R.drawable.dry_heart)
+            heartImgStatus.alpha = 0.7f
         }
     }
 

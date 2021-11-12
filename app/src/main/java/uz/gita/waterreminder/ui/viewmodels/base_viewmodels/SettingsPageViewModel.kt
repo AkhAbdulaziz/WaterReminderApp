@@ -116,4 +116,20 @@ class SettingsPageViewModel @Inject constructor(
     fun getNotificationStatus(): Boolean {
         return baseRepository.isNotificationEnabled
     }
+
+    fun getNotificationMaxId(): Int {
+        return baseRepository.getNotificationMaxId()
+    }
+
+    fun checkNewDay(): Boolean {
+        return baseRepository.checkNewDay()
+    }
+
+    fun setCurrentNotificationRequestId(status: String) {
+        baseRepository.currentNotificationRequestId = status
+    }
+
+    fun getCurrentNotificationRequestId(): String {
+        return baseRepository.currentNotificationRequestId!!
+    }
 }

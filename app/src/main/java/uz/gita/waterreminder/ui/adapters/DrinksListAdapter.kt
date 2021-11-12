@@ -12,8 +12,8 @@ import uz.gita.waterreminder.data.entity.DrinksItemEntity
 class DrinksListAdapter(private val list: ArrayList<DrinksItemEntity>) :
     RecyclerView.Adapter<DrinksListAdapter.VH>() {
 
-    private var deleteListener: ((Int) -> Unit)? = null
-    fun setDeleteListener(block: (Int) -> Unit) {
+    private var deleteListener: ((Int,DrinksItemEntity) -> Unit)? = null
+    fun setDeleteListener(block: (Int,DrinksItemEntity) -> Unit) {
         deleteListener = block
     }
 
@@ -26,14 +26,25 @@ class DrinksListAdapter(private val list: ArrayList<DrinksItemEntity>) :
 
         init {
             itemDeleteImg.setOnClickListener {
-                deleteListener?.invoke(absoluteAdapterPosition)
+                deleteListener?.invoke(absoluteAdapterPosition,list[absoluteAdapterPosition])
             }
         }
 
         fun bind() {
             val data = list[absoluteAdapterPosition]
             itemImage.setImageResource(data.imageId)
-            time.text = data.time
+
+            var timeText = data.time
+            if (timeText.substring(timeText.indexOf(":") + 1).length == 1) {
+                timeText = "${
+                    timeText.substring(
+                        0,
+                        timeText.indexOf(":")
+                    )
+                }:0${timeText.substring(timeText.indexOf(":") + 1)}"
+            }
+            time.text = timeText
+
             nextTimeText.visibility = if (data.haveNextTimeText) View.VISIBLE else View.GONE
             glassSize.text = "${data.glassSize} ml"
         }

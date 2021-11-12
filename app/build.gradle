@@ -52,12 +52,10 @@ dependencies {
      **/
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
-
     /**
      * ViewModelProviders
      * */
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-
 
     /**
      * Room library
@@ -109,9 +107,13 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.38.1"
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
-
     /**
      * Lotti animations
      */
     implementation "com.airbnb.android:lottie:4.1.0"
+
+    /**
+     *  Switch Button
+     */
+    implementation 'com.github.angads25:toggle:1.1.0'
 }

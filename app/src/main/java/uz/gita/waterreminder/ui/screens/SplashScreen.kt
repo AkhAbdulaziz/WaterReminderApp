@@ -25,6 +25,21 @@ class SplashScreen : Fragment(R.layout.screen_slpash) {
         animation = animationView
         animation!!.playAnimation()
 
+        /*
+         val scope = CoroutineScope(Dispatchers.Default)
+         scope.launch {
+             delay(3000)
+             if (viewModel.isFirstTimeUser()) {
+                 viewModel.noLongerFirstTimeUser()
+                 findNavController().navigate(SplashScreenDirections.actionSplashScreenToIntroMainScreen())
+
+             } else {
+                 viewModel.checkNewDay()
+                 findNavController().navigate(SplashScreenDirections.actionSplashScreenToBaseMainScreen())
+             }
+         }
+        */
+
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
             if (viewModel.isFirstTimeUser()) {
@@ -35,7 +50,7 @@ class SplashScreen : Fragment(R.layout.screen_slpash) {
                 viewModel.checkNewDay()
                 findNavController().navigate(SplashScreenDirections.actionSplashScreenToBaseMainScreen())
             }
-        }, 3000)
+        }, 2000)
     }
 
     override fun onDestroy() {

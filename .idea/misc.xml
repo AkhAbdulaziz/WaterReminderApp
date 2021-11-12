@@ -39,6 +39,7 @@
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_baseline_nights_stay_24.xml" value="0.19427083333333334" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_bottom_nav_item_bg_grey.xml" value="0.19427083333333334" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_clock.xml" value="0.20833333333333334" />
+        <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_delete.xml" value="0.20833333333333334" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_drop.xml" value="0.20512820512820512" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_drop2.xml" value="0.20833333333333334" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/drawable/ic_gender.xml" value="0.20833333333333334" />
@@ -59,8 +60,8 @@
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/dialog_switch_cup.xml" value="0.2" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/drinks_list_item.xml" value="0.22" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_base_history.xml" value="0.178125" />
-        <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_base_home.xml" value="0.22" />
-        <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_base_settings.xml" value="0.22" />
+        <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_base_home.xml" value="0.2" />
+        <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_base_settings.xml" value="0.2" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_intro_bedtime.xml" value="0.2" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_intro_gender.xml" value="0.2" />
         <entry key="..\:/GITA/BOOTCAMP/Android/Applications/Lesson30_WaterReminderApp/WaterReminderApp/app/src/main/res/layout/page_intro_wakeup.xml" value="0.14" />
